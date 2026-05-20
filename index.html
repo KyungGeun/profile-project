@@ -293,10 +293,10 @@
           <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
         </button>
         <!-- ✏️ EDIT: CV 링크 연결 -->
-        <a href="#"
-          class="hidden sm:flex font-headline tracking-tight font-extrabold uppercase text-on-primary px-5 py-2.5 rounded-xl bg-primary-container hover:opacity-90 transition-opacity text-sm">
+        <button id="download-cv-btn"
+          class="hidden sm:flex font-headline tracking-tight font-extrabold uppercase text-on-primary px-5 py-2.5 rounded-xl bg-primary-container hover:opacity-90 transition-opacity text-sm cursor-pointer">
           Download CV
-        </a>
+        </button>
       </div>
 
     </div>
@@ -461,10 +461,18 @@
               </div>
             </div>
 
-            <!-- Tech Tags -->
-            <div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/10">
-              <span class="tag">Unity</span>
-              <span class="tag">C#</span>
+            <!-- Tech Tags & Download Button -->
+            <div class="flex justify-between items-center gap-4 pt-4 border-t border-outline-variant/10">
+              <div class="flex flex-wrap gap-2">
+                <span class="tag">Unity</span>
+                <span class="tag">C#</span>
+              </div>
+              <a href="#"
+                class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#38bdf8]/10 hover:bg-[#38bdf8]/20 text-[#38bdf8] border border-[#38bdf8]/20 transition-all duration-200 text-sm font-semibold tracking-tight opacity-50 cursor-not-allowed pointer-events-none"
+                title="준비 중인 프로젝트입니다.">
+                <span class="material-symbols-outlined text-base">download</span>
+                Coming Soon
+              </a>
             </div>
           </div>
 
@@ -503,10 +511,18 @@
               </div>
             </div>
 
-            <!-- Tech Tags -->
-            <div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/10">
-              <span class="tag">Unity</span>
-              <span class="tag">C#</span>
+            <!-- Tech Tags & Download Button -->
+            <div class="flex justify-between items-center gap-4 pt-4 border-t border-outline-variant/10">
+              <div class="flex flex-wrap gap-2">
+                <span class="tag">Unity</span>
+                <span class="tag">C#</span>
+              </div>
+              <a href="#"
+                class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#38bdf8]/10 hover:bg-[#38bdf8]/20 text-[#38bdf8] border border-[#38bdf8]/20 transition-all duration-200 text-sm font-semibold tracking-tight opacity-50 cursor-not-allowed pointer-events-none"
+                title="준비 중인 프로젝트입니다.">
+                <span class="material-symbols-outlined text-base">download</span>
+                Coming Soon
+              </a>
             </div>
           </div>
         </div>
@@ -680,6 +696,14 @@
 
     // 초기 활성화
     setActive('profile');
+
+    /* ── Download CV as PDF ── */
+    const downloadCvBtn = document.getElementById('download-cv-btn');
+    if (downloadCvBtn) {
+      downloadCvBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
   </script>
 
   <!-- Shared utility class styles via Tailwind @apply workaround -->
@@ -690,6 +714,21 @@
 
     .tag {
       @apply bg-surface-container-highest px-2 py-1 rounded text-xs font-label text-on-surface-variant font-medium;
+    }
+
+    /* ── Print Styles for PDF Export ── */
+    @media print {
+      header, #theme-toggle, #download-cv-btn {
+        display: none !important;
+      }
+      .sidebar-card, .bg-surface-container, .bg-surface-container-lowest, section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
     }
   </style>
 
