@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="light" lang="ko">
+<html class="dark" lang="ko">
 
 <head>
   <meta charset="utf-8">
@@ -106,23 +106,65 @@
       transition: background-color 0.4s, color 0.4s;
     }
 
-    /* ── Dark mode overrides ── */
+    /* ── Dark mode overrides (#0F172A Slate 900 Theme for High Readability) ── */
     .dark body {
-      background-color: #0f1626;
-      color: #e2e8f8;
+      background-color: #0f172a !important;
+      color: #f1f5f9 !important;
     }
 
-    .dark .sidebar-card {
-      background-color: #1a233a;
-    }
-
+    .dark .bg-surface-container-lowest,
+    .dark .bg-surface-container-low,
+    .dark .bg-surface-container,
+    .dark .sidebar-card,
     .dark .hero-card,
-    .dark .exp-card {
-      background-color: #1a233a;
+    .dark .exp-card,
+    .dark .project-card,
+    .dark #certs > div > div,
+    .dark #contact > div {
+      background-color: #1e293b !important; /* Slate 800 */
+      border-color: rgba(51, 65, 85, 0.6) !important; /* Slate 700 with opacity */
     }
 
-    .dark .project-card {
-      background-color: #1e2a42;
+    .dark .bg-surface-bright {
+      background-color: #334155 !important; /* Slate 700 */
+    }
+
+    .dark .text-on-surface,
+    .dark .text-\[\#131b2e\] {
+      color: #f8fafc !important; /* Slate 50 (High contrast text) */
+    }
+
+    .dark .text-on-surface-variant {
+      color: #cbd5e1 !important; /* Slate 300 (Very readable subtext) */
+    }
+
+    .dark .text-surface-tint {
+      color: #38bdf8 !important; /* Vibrant Cyan 400 */
+    }
+
+    .dark .tag,
+    .dark .skill-tag {
+      background-color: #334155 !important; /* Slate 700 tag */
+      color: #f1f5f9 !important; /* Slate 100 tag text */
+    }
+
+    .dark h1,
+    .dark h2,
+    .dark h3,
+    .dark h4,
+    .dark h5,
+    .dark h6 {
+      color: #f8fafc !important; /* Force highly readable slate titles */
+    }
+
+    .dark .sidebar-link.is-active {
+      background-color: rgba(56, 189, 248, 0.15) !important; /* Soft cyan glow */
+      color: #38bdf8 !important; /* Vibrant Cyan */
+    }
+
+    .dark .nav-link.is-active {
+      color: #38bdf8 !important;
+      border-bottom-color: #38bdf8 !important;
     }
 
     /* ── Top nav active / inactive ── */
@@ -746,7 +788,7 @@
     if (saved) {
       applyTheme(saved === 'dark');
     } else {
-      applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(true); // Default to gorgeous dark mode!
     }
 
     /* ── Nav & Sidebar Active State ── */
