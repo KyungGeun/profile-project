@@ -276,6 +276,8 @@
       <nav class="hidden md:flex gap-6 items-center font-headline" id="main-nav">
         <a href="#profile" data-section="profile"
           class="nav-link tracking-tight font-extrabold uppercase px-2 rounded-sm">Profile</a>
+        <a href="#current-project" data-section="current-project"
+          class="nav-link tracking-tight font-extrabold uppercase px-2 rounded-sm">Current Project</a>
 
         <a href="#certs" data-section="certs"
           class="nav-link tracking-tight font-extrabold uppercase px-2 rounded-sm">Certs</a>
@@ -327,6 +329,10 @@
           <a href="#profile" data-section="profile" class="sidebar-link font-headline tracking-wide">
             <span class="material-symbols-outlined text-xl">person_search</span>
             Profile
+          </a>
+          <a href="#current-project" data-section="current-project" class="sidebar-link font-headline tracking-wide">
+            <span class="material-symbols-outlined text-xl">pending_actions</span>
+            Current Project
           </a>
 
           <a href="#certs" data-section="certs" class="sidebar-link font-headline tracking-wide">
@@ -405,7 +411,57 @@
         </div>
       </section>
 
+        <!-- ── Current Project Section ── -->
+        <section id="current-project" class="mb-12">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="flex items-center gap-3">
+              <h3 class="font-headline text-2xl font-bold text-on-surface whitespace-nowrap">Current Project</h3>
+              <span class="flex h-2.5 w-2.5 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#38bdf8]"></span>
+              </span>
+            </div>
+            <div class="h-px flex-1 bg-gradient-to-r from-surface-tint/30 to-transparent"></div>
+          </div>
 
+          <div class="bg-surface-container p-6 rounded-2xl border border-outline-variant/20 hover:border-[#38bdf8]/30 transition-all duration-300 shadow-lg">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 mb-4">
+              <div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#38bdf8]/10 text-[#38bdf8] border border-[#38bdf8]/20 mb-2">
+                  <span class="material-symbols-outlined text-xs animate-spin" style="animation-duration: 3s;">progress_activity</span>
+                  개발 진행 중 (In Progress)
+                </span>
+                <h4 class="font-headline text-2xl font-black text-on-surface tracking-tight">프로젝트 명을 입력해 주세요</h4>
+              </div>
+              <div class="text-xs font-label text-[#38bdf8] font-semibold bg-[#38bdf8]/10 px-3 py-1.5 rounded-xl border border-[#38bdf8]/20 w-fit">
+                기획 및 프로토타이핑 단계
+              </div>
+            </div>
+
+            <p class="font-body text-on-surface-variant text-base mb-6 leading-relaxed">
+              여기에 현재 개발 중인 게임이나 프로젝트의 핵심 컨셉과 기획 의도를 작성해 주세요. 리듬과 액션의 융합, 혹은 사운드 디자인적인 특징을 어필하면 더욱 훌륭한 소개가 됩니다.
+            </p>
+
+            <!-- Progress Bar -->
+            <div class="mb-6">
+              <div class="flex justify-between text-xs font-label text-on-surface-variant mb-2">
+                <span>개발 진척도</span>
+                <span class="text-[#38bdf8] font-bold">15%</span>
+              </div>
+              <div class="w-full bg-[#1e293b] rounded-full h-2 overflow-hidden border border-outline-variant/10">
+                <div class="bg-gradient-to-r from-[#38bdf8] to-blue-500 h-full rounded-full" style="width: 15%"></div>
+              </div>
+            </div>
+
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/10">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">FMOD</span>
+              <span class="tag">Sound Design</span>
+            </div>
+          </div>
+        </section>
 
       <!-- ── Certifications & Education ── -->
       <section id="certs">
@@ -538,7 +594,7 @@
     const sidebarLinks = document.querySelectorAll('#sidebar-nav .sidebar-link');
 
     // 스크롤 감지할 섹션 목록
-    const sectionIds = ['profile', 'certs', 'contact'];
+    const sectionIds = ['profile', 'current-project', 'certs', 'contact'];
 
     function setActive(sectionId) {
       const topId = sectionId;
